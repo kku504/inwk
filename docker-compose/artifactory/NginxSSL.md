@@ -13,3 +13,14 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout /etc/pki/tls/private/example.k
 ```
 If you wish to use your own key and certificate, you need to place your own `<file>.key` and `<file>.pem` in the host's 
 `/data/nginx/ssl` directory. The Nginx container will detect and use them instead of the pre-loaded example.
+
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout artifactorydocker01.key -out artifactorydocker01.pem
+
+cp artifactorydocker01.key /data/nginx/ssl/
+
+cp artifactorydocker01.pem /data/nginx/ssl/
+
+sudo docker-compose -f artifactory-pro-nginx-derby.yml down
+
+sudo docker-compose -f artifactory-pro-nginx-derby.yml up -d
+
