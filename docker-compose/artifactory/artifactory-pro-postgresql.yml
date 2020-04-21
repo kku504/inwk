@@ -9,7 +9,7 @@ services:
      - POSTGRES_DB=artifactory
      # The following must match the DB_USER and DB_PASSWORD values passed to Artifactory
      - POSTGRES_USER=artifactory
-     - POSTGRES_PASSWORD=password
+     - POSTGRES_PASSWORD=password1
     volumes:
      - /data/postgresql:/var/lib/postgresql/data
     restart: always
@@ -33,9 +33,9 @@ services:
      - DB_TYPE=postgresql
      # The following must match the POSTGRES_USER and POSTGRES_PASSWORD values passed to PostgreSQL
      - DB_USER=artifactory
-     - DB_PASSWORD=password
+     - DB_PASSWORD=password1
      # Add extra Java options by uncommenting the following line
-     #- EXTRA_JAVA_OPTIONS=-Xms512m -Xmx4g
+     - EXTRA_JAVA_OPTIONS=-Xms512m -Xmx4g
     restart: always
     ulimits:
       nproc: 65535
